@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.budget.ui.MainController">
+
+    <!-- Top: month navigation -->
+    <top>
+        <HBox styleClass="header-bar" alignment="CENTER" spacing="16">
+            <Button fx:id="btnPrevMonth" text="&#8592;" onAction="#onPrevMonth" styleClass="nav-btn"/>
+            <Label fx:id="lblCurrentMonth" styleClass="month-label" text="Month Year"/>
+            <Button fx:id="btnNextMonth" text="&#8594;" onAction="#onNextMonth" styleClass="nav-btn"/>
+        </HBox>
+    </top>
+
+    <!-- Center: tabs -->
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+
+            <!-- ========== BUDGET TAB ========== -->
+            <Tab text="Budget">
+                <VBox spacing="10" styleClass="tab-content">
+                    <TableView fx:id="budgetTable" VBox.vgrow="ALWAYS" editable="true">
+                        <columns>
+                            <TableColumn fx:id="colCategory" text="Category" prefWidth="200"/>
+                            <TableColumn fx:id="colPlanned"  text="Planned"  prefWidth="140"/>
+                            <TableColumn fx:id="colSpent"    text="Spent"    prefWidth="140"/>
+                            <TableColumn fx:id="colRemaining" text="Remaining" prefWidth="140"/>
+                        </columns>
+                        <placeholder><Label text="No categories yet. Add them in the Categories tab."/></placeholder>
+                    </TableView>
+
+                    <!-- Totals row -->
+                    <HBox spacing="40" alignment="CENTER_RIGHT" styleClass="totals-bar">
+                        <Label text="Total Planned:" styleClass="totals-label"/>
+                        <Label fx:id="lblTotalPlanned" text="0.00" styleClass="totals-value"/>
+                        <Label text="Total Spent:" styleClass="totals-label"/>
+                        <Label fx:id="lblTotalSpent" text="0.00" styleClass="totals-value"/>
+                        <Label text="Remaining:" styleClass="totals-label"/>
+                        <Label fx:id="lblTotalRemaining" text="0.00" styleClass="totals-value"/>
+                        <Button fx:id="btnCopyPrevMonth" text="Copy from Previous Month"
+                                onAction="#onCopyPrevMonth" disable="true"/>
+                    </HBox>
+                    <VBox.margin>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </VBox.margin>
+                </VBox>
+            </Tab>
+
+            <!-- ========== EXPENSES TAB ========== -->
+            <Tab text="Expenses">
+                <VBox spacing="10" styleClass="tab-content">
+                    <!-- Add expense form -->
+                    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="form-bar">
+                        <ComboBox fx:id="cbExpenseCategory" promptText="Category" prefWidth="160"/>
+                        <TextField fx:id="tfExpenseAmount" promptText="Amount" prefWidth="100"/>
+                        <TextField fx:id="tfExpenseDesc" promptText="Description" prefWidth="220" HBox.hgrow="ALWAYS"/>
+                        <DatePicker fx:id="dpExpenseDate" prefWidth="150"/>
+                        <Button text="Add Expense" onAction="#onAddExpense" styleClass="primary-btn"/>
+                    </HBox>
+
+                    <TableView fx:id="expenseTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colExpCat"    text="Category"    prefWidth="160"/>
+                            <TableColumn fx:id="colExpAmount" text="Amount"      prefWidth="110"/>
+                            <TableColumn fx:id="colExpDesc"   text="Description" prefWidth="300"/>
+                            <TableColumn fx:id="colExpDate"   text="Date"        prefWidth="120"/>
+                        </columns>
+                        <placeholder><Label text="No expenses for this month."/></placeholder>
+                    </TableView>
+
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="Delete Selected" onAction="#onDeleteExpense" styleClass="danger-btn"/>
+                    </HBox>
+
+                    <VBox.margin>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </VBox.margin>
+                </VBox>
+            </Tab>
+
+            <!-- ========== CATEGORIES TAB ========== -->
+            <Tab text="Categories">
+                <VBox spacing="10" styleClass="tab-content">
+                    <HBox spacing="10" alignment="CENTER_LEFT" styleClass="form-bar">
+                        <TextField fx:id="tfNewCategory" promptText="New category name" prefWidth="250"/>
+                        <Button text="Add" onAction="#onAddCategory" styleClass="primary-btn"/>
+                    </HBox>
+                    <ListView fx:id="categoryList" VBox.vgrow="ALWAYS"/>
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="Delete Selected" onAction="#onDeleteCategory" styleClass="danger-btn"/>
+                    </HBox>
+                    <VBox.margin>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </VBox.margin>
+                </VBox>
+            </Tab>
+
+            <!-- ========== CHART TAB ========== -->
+            <Tab text="History Chart">
+                <VBox styleClass="tab-content">
+                    <LineChart fx:id="budgetChart" VBox.vgrow="ALWAYS">
+                        <xAxis>
+                            <NumberAxis fx:id="chartXAxis" lowerBound="1" upperBound="12" tickUnit="1"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="chartYAxis"/>
+                        </yAxis>
+                    </LineChart>
+                    <VBox.margin>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </VBox.margin>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+</BorderPane>

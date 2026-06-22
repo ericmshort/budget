@@ -1,0 +1,121 @@
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f5f5f5;
+}
+
+.header-bar {
+    -fx-background-color: #1565c0;
+    -fx-padding: 10 20 10 20;
+}
+
+.month-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-min-width: 200px;
+    -fx-alignment: center;
+}
+
+.nav-btn {
+    -fx-background-color: #0d47a1;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #1976d2;
+}
+
+.tab-content {
+    -fx-padding: 0;
+}
+
+.form-bar {
+    -fx-padding: 10 10 4 10;
+    -fx-background-color: #e8eaf6;
+    -fx-border-color: #c5cae9;
+    -fx-border-width: 0 0 1 0;
+}
+
+.totals-bar {
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: #e8eaf6;
+    -fx-border-color: #c5cae9;
+    -fx-border-width: 1 0 0 0;
+}
+
+.totals-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474f;
+}
+
+.totals-value {
+    -fx-text-fill: #1a237e;
+    -fx-font-weight: bold;
+}
+
+.primary-btn {
+    -fx-background-color: #1565c0;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 6 14 6 14;
+}
+
+.primary-btn:hover {
+    -fx-background-color: #1976d2;
+}
+
+.danger-btn {
+    -fx-background-color: #c62828;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+    -fx-padding: 6 14 6 14;
+    -fx-margin: 0 10 8 0;
+}
+
+.danger-btn:hover {
+    -fx-background-color: #e53935;
+}
+
+.table-view {
+    -fx-background-color: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e3f2fd;
+    -fx-font-weight: bold;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: #e0e0e0;
+    -fx-padding: 6 16 6 16;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: white;
+}
+
+.tab-pane > .tab-header-area {
+    -fx-background-color: #e0e0e0;
+}
+
+.chart {
+    -fx-background-color: white;
+}
+
+.chart-plot-background {
+    -fx-background-color: #fafafa;
+}
+
+.default-color0.chart-series-line { -fx-stroke: #1565c0; -fx-stroke-width: 2.5px; }
+.default-color1.chart-series-line { -fx-stroke: #d32f2f; -fx-stroke-width: 2.5px; }
+.default-color0.chart-line-symbol { -fx-background-color: #1565c0, white; }
+.default-color1.chart-line-symbol { -fx-background-color: #d32f2f, white; }
