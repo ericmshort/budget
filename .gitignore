@@ -5,3 +5,8 @@ target/
 .idea/
 .vscode/
 *.DS_Store
+
+# Database files — app data must never be committed
+*.db
+*.sqlite
+*.sqlite3
